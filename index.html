@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I WANT THAT COUCH</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>I WANT THAT COUCH <span class="emoji">🛋️📈</span></h1>
+
+    <section id="goal-form">
+      <h2>Your savings journey starts here.</h2>
+
+      <div class="form-group">
+        <label for="goalName">🏷️ Goal Name</label>
+        <input type="text" id="goalName" placeholder="e.g. My Dream Couch" />
+      </div>
+
+      <div class="form-group">
+        <label for="goalAmount">💰 Total Amount (R)</label>
+        <input type="number" id="goalAmount" placeholder="Enter total amount" />
+      </div>
+
+      <div class="form-group">
+        <label for="goalDeadline">📅 Deadline</label>
+        <input type="date" id="goalDeadline" />
+      </div>
+
+      <button onclick="createGoal()">Set Goal</button>
+      <a href="#" class="nav-button" onclick="handleNavToast()">→ Track Your Goal</a>
+    </section>
+
+    <section id="progress-display">
+      <h2 id="goalTitleDisplay">No goal set – Deadline: <span id="goalDeadlineDisplay">N/A</span></h2>
+      <p>Saved: R<span id="savedAmount">0.00</span> / R<span id="totalAmount">0.00</span></p>
+
+      <div id="progressBar">
+        <div id="progressFill"></div>
+      </div>
+
+      <div id="emojiDisplay"></div>
+
+      <div class="form-group">
+        <label for="depositAmount">💸 Deposit Amount (R)</label>
+        <input type="number" id="depositAmount" placeholder="Enter deposit amount" />
+      </div>
+
+      <button onclick="topUp()">Top Up</button>
+      <button onclick="clearGoal()" class="clear-button">Clear Goal</button>
+
+  </div>
+
+  <script src="goalTracker.js" defer></script>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Lethu Mchunu. All rights reserved.</p>
+    <p>Made with 💻 in Durban, South Africa</p>
+    <p>
+      <a href="mailto:lethumchunu@yahoo.com">
+        <i class="fas fa-envelope"></i> lethumchunu@yahoo.com
+      </a>
+    </p>
+    <p>
+      <a href="https://github.com/lethumchunu" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </p>
+  </footer>
+
+</body>
+</html>

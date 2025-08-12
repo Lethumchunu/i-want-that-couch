@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goal Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Goal Tracker <span class="emoji">🛋️📈</span></h1>
+
+    <section id="tracker-display">
+      <h2 id="goalTitleDisplay">Loading...</h2>
+      <p>Saved: R<span id="savedAmount">0</span> / R<span id="totalAmount">0</span></p>
+      <p>Deadline: <span id="goalDeadlineDisplay">N/A</span></p>
+
+      <div id="progressBar"><div id="progressFill"></div></div>
+      <div id="emojiDisplay" style="visibility:hidden; font-size: 24px;"></div>
+
+      <input type="number" id="depositAmount" placeholder="Deposit Amount (R)" />
+      <button onclick="topUp()">Top Up</button>
+    </section>
+
+    <section id="savingsHistory">
+      <h3>Savings History 📜</h3>
+      <ul id="transactionHistory">
+        <!-- Entries will be added dynamically -->
+      </ul>
+    </section>
+
+    <section id="dailyTip">
+      <h3>💡 Tip of the Day</h3>
+      <p id="tipText">Automate your savings to stay consistent, even on tough months.</p>
+    </section>
+
+    <a href="index.html" class="return-home">← Back to Home</a>
+  </div>
+
+  <script src="goalTracker.js"></script>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Lethu Mchunu. All rights reserved.</p>
+    <p>Made with 💻 in Durban, South Africa</p>
+    <p>
+      <a href="mailto:lethumchunu@yahoo.com">
+        <i class="fas fa-envelope"></i> lethumchunu@yahoo.com
+      </a>
+    </p>
+    <p>
+      <a href="https://github.com/lethumchunu" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </p>
+  </footer>
+
+</body>
+</html>
