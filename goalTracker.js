@@ -2,6 +2,12 @@
 let savingsGoals = [];
 let currentGoalIndex = 0;
 
+// 🚀 Launch Animation Trigger
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
+
 // 🎹 Keyboard Shortcuts
 document.addEventListener("keydown", (event) => {
   const key = event.key;
@@ -41,7 +47,10 @@ const tips = [
 ];
 
 function showDailyTip() {
-  tipText.textContent = tips[Math.floor(Math.random() * tips.length)];
+  const tipText = document.getElementById("tipText");
+  if (tipText) {
+    tipText.textContent = tips[Math.floor(Math.random() * tips.length)];
+  }
 }
 
 function createGoal() {
@@ -139,6 +148,15 @@ function topUp() {
   // 🔥 Slang Toast
   showMilestoneToast(progress);
 
+  if (progress >= 100) {
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
+
+
   // 🧾 Transaction History
   const transactionList = JSON.parse(localStorage.getItem("transactions")) || [];
   transactionList.push({ amount: depositAmount, time: new Date().toLocaleString() });
@@ -200,7 +218,7 @@ function updateUI() {
   document.getElementById("goalTitleDisplay").innerText = `${name} – Deadline: ${deadline}`;
   document.getElementById("savedAmount").innerText = saved.toFixed(2);
   document.getElementById("totalAmount").innerText = amount.toFixed(2);
-  document.getElementById("goalDeadlineDisplay").innerText = deadline;
+  document.getElementById("tipText").innerText = "Save smart!";
 
   updateEmoji(saved, amount);
   updateProgressBar((saved / amount) * 100);
@@ -209,6 +227,8 @@ function updateUI() {
 
 function renderHistory() {
   const list = document.getElementById("transactionHistory");
+  if (!list) return; // Prevent error if element is missing
+
   list.innerHTML = "";
   const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
   transactions.forEach(t => {
@@ -217,6 +237,7 @@ function renderHistory() {
     list.appendChild(item);
   });
 }
+
 
 function updateProgressBar(percent) {
   const fill = document.getElementById("progressFill");
@@ -238,6 +259,7 @@ function clearGoal() {
     localStorage.clear();
     updateUI();
     alert("Goal cleared. Fresh start!");
+    location.reload(); // 🔄 Refresh the page
   }
 }
 
