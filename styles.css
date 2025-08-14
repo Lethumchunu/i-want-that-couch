@@ -68,9 +68,8 @@ section {
 h1 {
   font-size: 2.5rem;
   text-align: center;
+  margin-bottom: 1rem;
   display: block;
-  margin: 0;
-  padding: 0;
   background: linear-gradient(to right, #2cb67d, #7f5af0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
