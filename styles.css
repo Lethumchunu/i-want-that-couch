@@ -11,8 +11,8 @@ html, body {
   color: #333;
 
   /* 🌿 WhatsApp-style Background */
-  background-color: #e7f3ec;
-  background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+  background-color: #f0f8f7; /* Soft teal tint */
+  background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'); /* Optional: couch-inspired texture */
   background-repeat: repeat;
   background-size: auto;
 }
@@ -47,15 +47,16 @@ main {
   max-width: 600px;
   margin: 0 auto;
   padding: 30px 20px;
-  background-color: #ffffff;
+  background: linear-gradient(to top right, #2e2e2e, #007d8a); /* Charcoal to teal */
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: 1px solid #007d8a;
+  color: #ffffff;
 }
 
 .container:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
 
 /* 🧩 Section Layout */
 section {
@@ -69,6 +70,7 @@ h1 {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 1rem;
+  color: #1f1f1f;
   display: block;
   background: linear-gradient(to right, #2cb67d, #7f5af0);
   -webkit-background-clip: text;
@@ -85,7 +87,7 @@ h1 .emoji {
 h2 {
   font-size: 1.4rem;
   margin: 10px 0 20px;
-  color: #2cb67d;
+  color: #007d8a;
   text-align: center;
 }
 
@@ -104,13 +106,19 @@ label {
 input[type="text"],
 input[type="number"],
 input[type="date"] {
+  color: #2e2e2e;
   width: 100%;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #007d8a;
   border-radius: 5px;
-  background-color: #fefcfb;
+  background-color: #f0f0f0;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+input:focus {
+  border-color: #ff8e3c;
+  box-shadow: 0 0 5px rgba(255, 142, 60, 0.6);
 }
 
 input,
@@ -134,13 +142,13 @@ button,
 }
 
 button {
-  background: linear-gradient(to right, #2cb67d, #7f5af0);
+  background: linear-gradient(to right, #007d8a, #00bfa5); /* Teal gradient */
   color: white;
   border: none;
 }
 
 button:hover {
-  background: linear-gradient(to right, #249b6b, #5b3bdc);
+  background: linear-gradient(to right, #ff8e3c, #ffb347); /* Orange pop */
 }
 
 .nav-button {
@@ -163,20 +171,21 @@ button:hover {
 #progressBar {
   width: 100%;
   height: 20px;
-  background-color: #e0e0e0;
+  background-color: #3a3a3a; /* Dark grey base */
   border-radius: 10px;
   margin: 15px 0;
   overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  border: 1px solid #555;
 }
 
 #progressFill {
   height: 100%;
   width: 0%;
   border-radius: 10px;
-  background-color: #ff8e3c;
+  background: linear-gradient(to right, #ff8e3c, #ffb347);
   position: relative;
-  transition: width 0.5s ease, background-color 0.3s ease;
+  transition: width 0.5s ease, background 0.3s ease;
 }
 
 #progressFill::after {
@@ -195,6 +204,8 @@ button:hover {
   margin: 10px;
   transition: transform 0.4s ease;
   visibility: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 #emojiDisplay.bounce {
@@ -204,6 +215,7 @@ button:hover {
 #emojiDisplay.show {
   visibility: visible;
   opacity: 0.9;
+  color: #ff8e3c;
 }
 
 
@@ -217,7 +229,7 @@ button:hover {
 #motivationMessage {
   text-align: center;
   font-style: italic;
-  color: #2cb67d;
+  color: #ff8e3c;
   margin: 20px 0;
 }
 
@@ -230,16 +242,64 @@ button:hover {
 #transactionHistory {
   list-style-type: none;
   padding: 0;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 #transactionHistory li {
-  background-color: #ffe8d6;
-  border-radius: 6px;
-  padding: 8px;
-  margin: 5px 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background: linear-gradient(to right, #fff3e0, #fefcfb);
+  border-left: 5px solid #007d8a;
+  border-radius: 8px;
+  padding: 12px 16px 12px 40px; /* 👈 Add left padding to make space for emoji */
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-size: 1rem;
+  color: #2e2e2e;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
 }
+
+#transactionHistory li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#transactionHistory li::before {
+  content: "💰";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+#depositAmount {
+  background: linear-gradient(to right, #fff3e0, #fefcfb);
+  border-left: 5px solid #007d8a;
+  border-radius: 8px;
+  padding: 12px 16px 12px 40px; /* Space for emoji */
+  margin: 20px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: relative;
+  font-size: 1rem;
+  color: #2e2e2e;
+}
+
+#goalName,
+#goalAmount,
+#goalDeadline,
+#depositAmount {
+  background: linear-gradient(to right, #fff3e0, #fefcfb);
+  border-left: 5px solid #007d8a;
+  border-radius: 8px;
+  padding: 12px 16px 12px 40px;
+  margin: 20px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-size: 1rem;
+  color: #2e2e2e;
+}
+
 
 /* 🏠 Return Link */
 .return-home {
@@ -352,11 +412,31 @@ body.loaded {
 
 .daily-tip {
   text-align: center;
-  background-color: #f0f8ff;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-left: 4px solid #00bfa5;
+  background: linear-gradient(to right, #e0f7f5, #fefcfb); /* Soft teal to warm white */
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-left: 6px solid #007d8a; /* FNB teal */
+  border-radius: 8px;
   font-style: italic;
+  font-size: 1.1rem;
+  color: #2e2e2e;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.daily-tip::before {
+  content: "💡";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  color: #007d8a;
+  background-color: #e0f7f5;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .card {
